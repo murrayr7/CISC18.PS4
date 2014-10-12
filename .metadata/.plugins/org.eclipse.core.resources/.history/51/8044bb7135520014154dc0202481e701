@@ -1,0 +1,109 @@
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+
+
+public class calc {
+
+	protected Shell shlFutureValueCalculator;
+	private Text curVal;
+	private Text interest;
+	private Text numYears;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			calc window = new calc();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shlFutureValueCalculator.open();
+		shlFutureValueCalculator.layout();
+		while (!shlFutureValueCalculator.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shlFutureValueCalculator = new Shell();
+		shlFutureValueCalculator.setSize(210, 171);
+		shlFutureValueCalculator.setText("Future Value Calculator");
+		shlFutureValueCalculator.setLayout(new GridLayout(3, false));
+		
+		Label lblNewLabel = new Label(shlFutureValueCalculator, SWT.NONE);
+		GridData gd_lblNewLabel = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+		gd_lblNewLabel.widthHint = 97;
+		lblNewLabel.setLayoutData(gd_lblNewLabel);
+		lblNewLabel.setAlignment(SWT.RIGHT);
+		lblNewLabel.setText("Current Value: $");
+		
+		curVal = new Text(shlFutureValueCalculator, SWT.BORDER);
+		new Label(shlFutureValueCalculator, SWT.NONE);
+		
+		Label lblNewLabel_1 = new Label(shlFutureValueCalculator, SWT.NONE);
+		lblNewLabel_1.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel_1.setAlignment(SWT.RIGHT);
+		lblNewLabel_1.setText("Interest Rate:");
+		
+		interest = new Text(shlFutureValueCalculator, SWT.BORDER);
+		
+		Label label = new Label(shlFutureValueCalculator, SWT.NONE);
+		label.setText("%");
+		
+		Label lblNewLabel_2 = new Label(shlFutureValueCalculator, SWT.NONE);
+		lblNewLabel_2.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel_2.setAlignment(SWT.RIGHT);
+		lblNewLabel_2.setText("Number of Years:");
+		
+		numYears = new Text(shlFutureValueCalculator, SWT.BORDER);
+		new Label(shlFutureValueCalculator, SWT.NONE);
+		
+		Button btnNewButton = new Button(shlFutureValueCalculator, SWT.NONE);
+		btnNewButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				double curVal,interest; int numYears;
+				try{
+				}catch(Exception exc){
+					
+				}
+			}
+		});
+		GridData gd_btnNewButton = new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1);
+		gd_btnNewButton.widthHint = 182;
+		btnNewButton.setLayoutData(gd_btnNewButton);
+		btnNewButton.setText("Calculate");
+		
+		Label lblNewLabel_3 = new Label(shlFutureValueCalculator, SWT.NONE);
+		lblNewLabel_3.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
+		lblNewLabel_3.setFont(SWTResourceManager.getFont("Times New Roman", 16, SWT.BOLD));
+		lblNewLabel_3.setAlignment(SWT.CENTER);
+		lblNewLabel_3.setText("The Future Value is...");
+
+	}
+}

@@ -1,0 +1,19 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import CISC181.Calcengine.Calculator;
+
+public class testFutureValue {
+
+	@Test
+	public void testFutureVal() {
+		assertEquals(11022.6616064735,Calculator.futureVal(10000, 3.25, 3),0);
+		
+		
+	}
+
+}
